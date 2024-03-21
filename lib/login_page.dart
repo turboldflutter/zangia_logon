@@ -7,10 +7,13 @@ import 'package:gradient_borders/gradient_borders.dart';
 
 class LoginPage extends StatelessWidget {
   final txtMobileNumber = TextEditingController();
+
   LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -29,15 +32,16 @@ class LoginPage extends StatelessWidget {
               image: AssetImage('assets/images/logo.png'),
               width: 300,
             ),
-            SizedBox(
-              height: 50,
+            Expanded(
+              child: Container(
+                height: 20,
+              ),
             ),
             Center(
               child: Container(
                 height: 177,
-                width: 335,
-                padding:
-                    EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                width: width - 50,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                 child: Column(
                   children: [
                     Row(
@@ -46,12 +50,14 @@ class LoginPage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(right: 8),
                         ),
-                        SizedBox(
-                          width: 271,
+                        Container(
+                          width: width - 180,
                           child: TextField(
                             controller: txtMobileNumber,
-                            decoration:
-                                InputDecoration(hintText: "Утасны дугаар",hintStyle: TextStyle(fontFamily: 'Nunito'),),
+                            decoration: InputDecoration(
+                              hintText: "Утасны дугаар",
+                              hintStyle: TextStyle(fontFamily: 'Nunito'),
+                            ),
                           ),
                         )
                       ],
@@ -81,6 +87,11 @@ class LoginPage extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                height: 20,
               ),
             ),
           ],
