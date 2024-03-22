@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/gradient_borders.dart';
+import 'package:zangia_logon/widget/button_widget.dart';
 
 class LoginPage extends StatelessWidget {
   final txtMobileNumber = TextEditingController();
@@ -85,6 +86,13 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            Button_large_primary(
+              onPressed: () {
+                debugPrint("Amjilttai");
+              },
+              text: "Нэвтрэх",
+              color: Colors.white,
             ),
             Expanded(
               child: Container(
