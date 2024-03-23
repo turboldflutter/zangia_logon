@@ -1,9 +1,6 @@
-import 'dart:ui';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gradient_borders/gradient_borders.dart';
+import 'package:zangia_logon/widget/button_widget.dart';
 
 class LoginPage extends StatelessWidget {
   final txtMobileNumber = TextEditingController();
@@ -16,7 +13,7 @@ class LoginPage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/login_background.png"),
             fit: BoxFit.cover,
@@ -25,10 +22,10 @@ class LoginPage extends StatelessWidget {
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(bottom: 100),
             ),
-            Image(
+            const Image(
               image: AssetImage('assets/images/logo.png'),
               width: 300,
             ),
@@ -41,31 +38,10 @@ class LoginPage extends StatelessWidget {
               child: Container(
                 height: 177,
                 width: width - 50,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Icon(Icons.phone_iphone, color: Colors.grey.shade600),
-                        Padding(
-                          padding: EdgeInsets.only(right: 8),
-                        ),
-                        Container(
-                          width: width - 180,
-                          child: TextField(
-                            controller: txtMobileNumber,
-                            decoration: InputDecoration(
-                              hintText: "Утасны дугаар",
-                              hintStyle: TextStyle(fontFamily: 'Nunito'),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                 decoration: BoxDecoration(
-                  border: GradientBoxBorder(
+                  border: const GradientBoxBorder(
                     gradient: LinearGradient(
                       begin: Alignment.topRight,
                       end: Alignment.bottomLeft,
@@ -76,7 +52,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     width: 1,
                   ),
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: <Color>[
@@ -87,7 +63,36 @@ class LoginPage extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.phone_iphone, color: Colors.grey.shade600),
+                        const Padding(
+                          padding: EdgeInsets.only(right: 8),
+                        ),
+                        Container(
+                          width: width - 180,
+                          child: TextField(
+                            controller: txtMobileNumber,
+                            decoration: const InputDecoration(
+                              hintText: "Утасны дугаар",
+                              hintStyle: TextStyle(fontFamily: 'Nunito'),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
+            ),
+            Button_large_primary(
+              onPressed: () {
+                debugPrint("Amjilttai");
+              },
+              text: "Нэвтрэх",
+              color: Colors.white,
             ),
             Expanded(
               child: Container(
